@@ -1,0 +1,211 @@
+:root {
+    --eye-size: 100px;
+    --eye-backcolor: #ad0000;
+    --eye-color: #000;
+    --eye-shadow: #adadad59;
+    --eyeball-shadow: rgb(27 27 27);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: black;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    gap: 80px;
+
+    >.eye-box {
+        background-color: white;
+        width: 220px;
+        height: 130px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100% 0 54% 46% / 93% 1% 99% 7%;
+        box-shadow: -4px 21px 1px 6px var(--eye-shadow) inset;
+        animation: height0 10s ease-in-out infinite alternate;
+        overflow: hidden;
+        border: 1px solid black;
+
+        &:first-child {
+            transform: scaleX(-1);
+        }
+
+        >.eye-circle {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            width: 95px;
+            height: 95px;
+            background-color: var(--eye-backcolor);
+            border: 6px solid black;
+            animation: rotate360 10s ease-in-out infinite alternate, show-hide1 10s ease-in-out infinite alternate;
+
+            >.circle-center {
+                border: 3px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                >.in-circle-center {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: var(--eye-color);
+                    box-shadow: 0 0 21px 3px var(--eyeball-shadow);
+                    position: relative;
+
+                    >.sp {
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+
+                        >.center {
+                            font-size: 55px;
+                            font-weight: 600;
+                            transform: rotate(180deg);
+                        }
+
+                        &:first-child {
+                            left: -25px;
+                            top: 0;
+                        }
+
+                        &:nth-of-type(2) {
+                            right: -13px;
+                            top: -25px;
+
+                            >.center {
+                                transform: rotate(-50deg);
+                            }
+                        }
+
+                        &:nth-of-type(3) {
+                            left: 8px;
+                            bottom: -21px;
+
+                            >.center {
+                                transform: rotate(65deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        >.eye-circle2 {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            width: 95px;
+            height: 95px;
+            background-color: var(--eye-backcolor);
+            overflow: hidden;
+            border: 6px solid black;
+            animation: rotate360 10s ease-in-out infinite, show-hide2 10s ease-in-out infinite alternate;
+
+            >.sp2 {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: -43px;
+                right: 2px;
+
+                &:nth-of-type(2) {
+                    transform: rotate(120deg);
+                    top: 22px;
+                    left: 38px;
+                }
+
+                &:nth-of-type(3) {
+                    transform: rotate(245deg);
+                    top: 20px;
+                    left: -38px;
+                }
+
+                >.center2 {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 170px;
+                    transform: rotateY(180deg);
+                    font-weight: bold;
+                }
+            }
+
+            >.in-circle-center2 {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                top: 43%;
+                left: 42%;
+                background-color: var(--eye-backcolor);
+            }
+        }
+    }
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+
+    }
+
+    20%,
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes height0 {
+    0%, 40%, 50%, 100% {
+        height: 130px;
+    }
+    43%, 47% {
+        height: 0;
+    }
+}
+
+@keyframes show-hide1 {
+    0%, 40% {
+        opacity: 1;
+    }
+    45%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show-hide2 {
+    0%, 40% {
+        opacity: 0;
+    }
+    45%, 100% {
+        opacity: 1;
+    }
+}
